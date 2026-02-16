@@ -1,0 +1,37 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+eval "$(starship init bash)"
+fastfetch
+
+# Auto-start TMUX solo si no estamos ya dentro
+if [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
+
+# 1. Reparar DNS tras crash de WARP
+alias fixdns='sudo rm -f /etc/resolv.conf && sudo ln -s /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf && sudo systemctl restart systemd-resolved && echo "DNS Restaurado: Systemd recuperó el control."'
+# 2. Desbloquear Brave (Eliminar SingletonLock)
+alias fixbrave='rm -f ~/.config/BraveSoftware/Brave-Browser/SingletonLock && echo "Brave Desbloqueado: Lock eliminado."'

@@ -1,0 +1,38 @@
+# --- MGR: REVENGEANCE CONFIG ---
+
+[window]
+# Márgenes internos (para que el texto no toque el borde)
+padding = { x = 15, y = 15 }
+# Transparencia del fondo (0.0 invisible - 1.0 sólido)
+opacity = 0.95
+title = "Raiden_OS"
+
+[scrolling]
+history = 10000
+
+[font]
+size = 12.0
+# Usamos el nombre exacto que nos dio tu sistema
+normal = { family = "Terminess Nerd Font", style = "Regular" }
+bold = { family = "Terminess Nerd Font", style = "Bold" }
+
+# --- PALETA DE COLORES (MGR) ---
+
+[colors.primary]
+background = "#0a0a0a"  # Negro Carbón (Fondo)
+foreground = "#dbf0f2"  # Blanco Cianótico (Texto)
+
+[colors.normal]
+black   = "#0f1419"
+red     = "#ff3333"  # Rojo Alerta (Blade Mode)
+green   = "#e0ad41"  # Verde Táctico
+yellow  = "#e0ad41"  # AMARILLO (Advertencias/Alertas)
+blue    = "#36a3d9"
+magenta = "#f07178"
+cyan    = "#00ffff"  # Cian Neón (Bordes/Cortes)
+white   = "#dbf0f2"
+
+# Cursores
+[colors.cursor]
+text = "#000000"
+cursor = "#00ffff"  # El bloque donde escribes será Cian Neón

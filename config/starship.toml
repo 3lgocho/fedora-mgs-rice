@@ -1,0 +1,42 @@
+# --- MGR: HUD SYSTEM CONFIG ---
+
+format = """
+[░▒▓](#00ffff)\
+[  MGR-OS ](bg:#00ffff fg:#000000)\
+[](bg:#1c1c1c fg:#00ffff)\
+$directory\
+[](fg:#1c1c1c bg:#000000)\
+$git_branch\
+$git_status\
+$cmd_duration\
+$line_break\
+$character"""
+
+# --- ESTILOS ---
+
+[directory]
+style = "bg:#1c1c1c fg:#00ffff"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:#000000"
+format = '[[ $symbol $branch ](fg:#e6c229 bg:#000000)]($style)'
+
+[git_status]
+style = "bg:#000000"
+format = '[[($all_status$ahead_behind )](fg:#ff3333 bg:#000000)]($style)'
+
+[cmd_duration]
+min_time = 500
+style = "bg:#000000"
+format = '[[  $duration ](fg:#e6c229 bg:#000000)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+success_symbol = "[ ⚡ ](bold #00ffff)"
+error_symbol = "[ ⚠️ ](bold #ff3333)"
